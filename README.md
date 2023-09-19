@@ -1,7 +1,29 @@
 # exp_project
 
-
 노안 및 시각장애인 식품 탐지 애플리케이션
+
+
+#사용 프레임워크
+
+DeepLearning: torch 2.0.1
+Website: Flask
+DataBase: MySQL
+App Development: AdroidStudio
+
+#사용 오픈 소스
+
+DeepTextRecognitionBenchmark
+
+https://github.com/clovaai/deep-text-recognition-benchmark
+
+Yolov8
+
+https://github.com/ultralytics/ultralytics
+
+TextRecognitionDataGenerator
+
+https://github.com/Belval/TextRecognitionDataGenerator
+
 #폴더 설명
 
 app -> 안드로이드 스튜디오 어플리케이션
