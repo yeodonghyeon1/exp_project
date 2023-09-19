@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CameraSendApp</string>
+
+    <!-- main.xml -->
+    <string name="btn_capture">사진찍기</string>
+    <string name="btn_gallery">갤러리</string>
+    <string name="btn_send">이미지전송</string>
+</resources>
