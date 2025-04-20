@@ -1,59 +1,122 @@
-# exp_project
+# 노안 및 시각장애인 식품 탐지 애플리케이션
 
-노안 및 시각장애인 식품 탐지 애플리케이션
+시각장애인과 노안이 있는 사용자들을 위한 식품 유통기한 및 바코드 인식 애플리케이션입니다.
 
+## 프로젝트 구조
 
-#사용 프레임워크
+```
+exp_project/
+├── app/                    # 안드로이드 애플리케이션
+├── data/                   # 데이터 분석 결과 저장소
+├── DeepTextRecognitionBenchmark/  # OCR 모델
+├── exam_file/             # 실험용 예제 파일
+├── model/                 # 훈련된 모델 저장소
+├── test_app/             # 테스트용 앱
+└── flaskserver.py        # Flask 웹 서버
+```
 
-DeepLearning: torch 2.0.1
-Website: Flask
-DataBase: MySQL
-App Development: AdroidStudio
+## 주요 기능
 
-#사용 오픈 소스
+1. **유통기한 인식**
+   - YOLOv8 모델을 사용하여 유통기한 영역 탐지
+   - Deep Text Recognition Benchmark 모델을 통한 OCR 처리
+   - 인식된 날짜 정보 TTS 음성 안내
 
-DeepTextRecognitionBenchmark
+2. **바코드 인식**
+   - pyzbar 라이브러리를 사용한 바코드 스캔
+   - 실시간 바코드 정보 추출
 
-https://github.com/clovaai/deep-text-recognition-benchmark
+3. **영상 처리**
+   - 실시간 카메라 스트림 처리
+   - 이미지 크롭 및 전처리
+   - 객체 탐지 결과 시각화
 
-Yolov8
+## 사용 기술
 
-https://github.com/ultralytics/ultralytics
+### 딥러닝
+- PyTorch 2.0.1
+- YOLOv8
+- Deep Text Recognition Benchmark
 
-TextRecognitionDataGenerator
+### 백엔드
+- Flask
+- OpenCV
+- MySQL
 
-https://github.com/Belval/TextRecognitionDataGenerator
+### 프론트엔드
+- Android Studio (Java)
 
-#폴더 설명
+## 사용된 오픈소스
 
-app -> 안드로이드 스튜디오 어플리케이션
-data -> flaskserver의 데이터 분석을 통해 나온 데이터 저장소
-DeepTextRecogntionBenchmark -> OCR 모델 제작
-exam_file -> 실험 example 파일
-model -> 훈련된 모델 저장소
-test_app -> 임시 테스트 앱
-flaskserver -> 파이썬 웹서버
+- [Deep Text Recognition Benchmark](https://github.com/clovaai/deep-text-recognition-benchmark)
+- [YOLOv8](https://github.com/ultralytics/ultralytics)
+- [TextRecognitionDataGenerator](https://github.com/Belval/TextRecognitionDataGenerator)
 
-#앱 이용 
+## 설치 및 실행 방법
 
-안드로이드 스튜디오에서 app 프로젝트 열어서 ip주소 넣는 값에 서버 주소 입력(2곳있음)
-flaskserver 서버 실행
+1. 필요한 패키지 설치
+```bash
+pip install -r requirements.txt
+```
 
+2. Flask 서버 실행
+```bash
+python flaskserver.py
+```
 
-------------------------------------------------------------------------------------------------------
-#2023.09.18 version1
+3. 안드로이드 앱 설정
+- Android Studio에서 app 프로젝트 열기
+- 서버 주소 설정 (2곳)
+- 앱 빌드 및 실행
 
-#기능
+## 현재 버전 (v1.0.0 - 2023.09.18)
 
-웹캠 유통기한 및 바코드 촬영 및 데이터 분석과 TTS
+### 구현된 기능
+- 웹캠을 통한 유통기한 및 바코드 촬영
+- 실시간 이미지 처리 및 분석
+- TTS를 통한 음성 안내
 
+### 알려진 문제점
+1. 사진 촬영 기능 오류
+2. SurfaceView가 ImageView를 가리는 현상
+3. MySQL 연동 미구현
+4. 데이터 저장 및 불러오기 기능 미구현
 
-#오류
+## 시스템 아키텍처
 
-1.사진 기능 오류
-2.ServfaceView가 imageView 가림
-3.mysql 사용X
-4.저장 및 불러오기 사용 안 됨
+### 서버 (Flask)
+- 이미지 처리 및 분석 담당
+- 딥러닝 모델 추론 실행
+- REST API 엔드포인트 제공
+  - `/sendFrame`: 이미지 프레임 처리
+  - `/sendvideo`: 비디오 스트림 처리
 
---------------------------------------------------------------------------------------------------------
+### 안드로이드 앱
+- 카메라 인터페이스
+- 서버와의 통신
+- TTS 음성 출력
+- 사용자 인터페이스
 
+## 향후 개선 계획
+
+1. 사진 촬영 기능 버그 수정
+2. UI/UX 개선
+   - SurfaceView와 ImageView 겹침 문제 해결
+3. 데이터베이스 연동
+   - MySQL 구현
+   - 데이터 저장/불러오기 기능
+4. 성능 최적화
+   - 모델 경량화
+   - 처리 속도 개선
+
+## 기여 방법
+
+1. Fork the Project
+2. Create your Feature Branch
+3. Commit your Changes
+4. Push to the Branch
+5. Open a Pull Request
+
+## 라이선스
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
