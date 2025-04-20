@@ -1,5 +1,9 @@
 # 노안 및 시각장애인 식품 탐지 애플리케이션
 
+![KakaoTalk_20250420_113134120](https://github.com/user-attachments/assets/dd0a921c-3763-4e39-81ef-5904186262ee)
+![KakaoTalk_20250420_113135866](https://github.com/user-attachments/assets/2b3f2a80-3175-44e4-b953-8beb75b93c9a)
+
+
 시각장애인과 노안이 있는 사용자들을 위한 식품 유통기한 및 바코드 인식 애플리케이션입니다.
 
 ## 프로젝트 구조
